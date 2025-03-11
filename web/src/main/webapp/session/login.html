@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Session을 이용한 로그인 방식</title>
+</head>
+<body>
+
+<!-- button은 onclick을 사용해도 되지만, submit은 onclick이 아닌, form에 onsubmit으로 작성해야 함 -->
+<form id="frm" method="post" action="./session1.do" onsubmit="return login()">
+아이디: <input type="text" name="mid"><br>
+비밀번호: <input type="password" name="mpass"><br>
+<input type="submit" value="로그인">
+</form>
+</body>
+
+<script>
+function login(){
+	if(frm.mid.value() == ""){
+		alert("아이디를 입력하세요");
+	}
+	else if(frm.mpass.value == ""){
+		alert("패스워드를 입력하세요");
+		return false; 
+	}
+	else{
+		return true;
+	}
+	
+}
+</script>
+</html>

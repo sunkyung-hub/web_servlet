@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <title>회원리스트 배열</title>
+    <style>
+        .lists, .lists2 { width: 400px; height: 30px; 
+            background-color: cornflowerblue;}
+        .lists > label, .lists2 > label { display: inline-block; 
+        width: 190px;
+        height: 30px; line-height: 30px; text-align: center;
+        }
+        .lists2 { background-color: skyblue !important;
+        height: auto; }
+    </style>
+</head>
+<!--
+    가입된 회원리스트를 출력하는 페이지를 제작해야 합니다.
+    해당 퍼블리셔가 제시한 예시 처럼 배열 데이터를 이용하여
+    전체회원 버튼 클릭시 출력 되도록 합니다.
+-->
+<body>
+    <div class="lists">
+        <label>아이디</label>
+        <label>고객명</label>
+    </div>
+    <div class="lists2">
+        <!--
+        <label>hong</label>
+        <label>홍길동</label>
+        -->
+    </div>
+    <input type="button" value="전체회원">
+</body>
+<!-- 
+회원 정보 데이터 
+const m = [
+    ["hong","홍길동"],
+    ["lee","이순신"],
+    ["kims","김유신"],
+    ["yuri","유리왕"],
+    ["kang","강감찬"]
+];
+-->
+</html>

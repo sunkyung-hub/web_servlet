@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입 약관</title>
+</head>
+<body>
+<form id="frm" method="post" action="http://172.30.1.4:8080/web/agreeok.do"  >
+<input type="checkbox" name="check" value="selectall" onclick="selectall(this)"> 전체선택 <br>
+<input type="checkbox" name="check"> 서비스 이용약관 동의(필수) <br>
+<input type="checkbox" name="check"> 개인정보 수입 및 이용(필수) <br>
+<input type="checkbox" name="check"> 이메일 정보 수신 약관(필수) <br>
+<input type="checkbox" name="check"> 광고성 정보 수신(선택) <br>
+<button type="button" onclick="join()">회원가입</button>
+
+</form>
+</body>
+<script>
+//https://hianna.tistory.com/432
+function selectall(selectall){
+	const checkboxs = document.getElementsByName("check");
+
+	checkboxs.forEach((checkbox) => {
+		checkbox.checked = selectall.checked;
+	})
+	
+}
+
+function join(){
+	
+	//if(frm.check.value==""){
+	//	alert("필수 약관에 동의해주세요")
+	//	return true;
+	//}
+	//else if(frm.check.value!=""){
+		frm.submit();
+	//}
+
+}
+</script>
+</html>

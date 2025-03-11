@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS 인증번호 발송</title>
+</head>
+<style>
+body{
+    font-size: 13px;
+    box-sizing: border-box;
+}
+.numbers{
+    width: 400px;
+    height: 150px;
+    margin: 0 auto;
+}
+.numbers > legend{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    background-color: cadetblue;
+    border-radius: 30px;
+    color: rgb(225, 239, 235);
+    font-weight: bolder;
+}
+.in1{
+    width: 50px;
+    height: 20px;
+    text-indent: 5px;
+}
+.in2{
+    width: 80px;
+    height: 20px;
+    text-indent: 5px;
+}
+.in3{
+    width: 150px;
+    height: 20px;
+    text-indent: 5px;
+    margin-right: 5px;
+}
+.btn1 { 
+    width: 100px;
+    height: 25px;
+    border: 0;
+    background-color: cadetblue;
+    border-radius: 5px;
+    font-size: 12px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.div_css { 
+    position: relative;
+    top: 25px;
+    text-align: center;
+}
+.color1{
+    background-color: black;
+    color: white;
+}
+</style>
+<body>
+<!--
+    SMS인증번호 시스템
+    인증번호 전송 버튼 클릭시 휴대폰 번호를 모두 입력해야만
+    인증번호 난수 6자리가 생성됩니다.
+    인증확인 버튼 클릭시 생성된 인증번호 난수 6자리와 동일하게
+    입력되면, "인증이 완료 되었습니다." 라는 경고 메세지가 출력 되어야 하며,
+    틀릴 경우 "인증번호를 다시 확인해 주세요" 라는 경고 메세지를 출력
+    합니다. 휴대폰 번호 미 입력시 "휴대폰 번호를 입력하세요" 라는 경고 메세지가
+    출력 되도록 합니다.
+-->
+<fieldset class="numbers">
+    <legend>SMS 인증번호 시스템</legend>
+    <div class="div_css">
+        <input type="text" class="in1" maxlength="3" placeholder="010"> - <input type="text" class="in2" maxlength="4" placeholder="1234"> - <input type="text" class="in2" maxlength="4" placeholder="1234">
+        <input type="button" value="인증번호 전송" class="btn1">
+        <br>
+        <br>
+        <input type="text" class="in3" maxlength="6" placeholder="인증번호 6자리"><input type="button" value="인증확인" class="btn1 color1">
+    </div>
+</fieldset> 
+</body>
+</html>

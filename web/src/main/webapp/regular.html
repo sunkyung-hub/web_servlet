@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 기준 정규식 코드 사용법</title>
+</head>
+<body>
+
+</body>
+<script>
+//정규식코드: replace, replaceAll, test, match, exec, split, search
+/*정규식 코드 옵션
+ * g (전체 문자열 파악하는 옵션)
+ * i (대문자 소문자를 동일한 단어로 인식)
+ * [] (문자열의 배열 범위) ex. [a-z]: a에서 z까지
+ ^ (부정의 뜻을 가진 옵션 = not).  
+ {} (패턴 형태)
+ \ (문자를 구분하여 검토) 
+ */
+ 
+//replace
+/* var word = "12A34a5a6Abz001";
+
+//정규식코드 패턴 -> //로 시작
+//var regp = /a/; //a만 찾음
+
+//console.log(word.replace(regp, "")); //"1234a5a6bz001"에서 앞의 a만 없어짐
+
+//var regp = /a/g;
+//console.log(word.replace(regp, "")); 
+//g를 사용하면 "1234a5a6bz001"에서, a가 전부 다 지워짐 / "12A34a5a6Abz001";에서 A는 그대로 남아있음
+
+var regp = /a/gi;
+console.log(word.replace(regp, "")); //i를 붙이면 "12A34a5a6Abz001" 에서 A, a 다 사라짐 
+*/
+
+//trim(정규식 코드가 아님): 앞 뒤 공백 제거
+/*var word = " 1 a 2 c 3 d ";
+console.log(word.trim()); //맨 앞, 뒤 공백이 사라짐 " 1 a 2 c 3 d " -> "1 a 2 c 3 d"
+
+var regp = / /g; // / /-> 공백
+console.log(word.replace(regp, "")); //앞, 뒤, 중간 공백 다 사라짐 " 1 a 2 c 3 d " -> "1a2c3d"*/
+
+//test: true, false(boolean)으로 결과가 나옴 / 인증번호에 주로 사용
+/*
+var word = "010aa1234b5678";  
+var word = "010-1234-*5678"; //특수문자를 핸들링해야 함
+//var regp = /[a-z]/g;
+//var regp = /[y-z]/g; //해당 되는 값 없으므로 false
+console.log(regp.test(word)); //true -> word에, regp범위 내의 숫자가 하나라도 있기 때문 
+
+var word = "010-1234-*5678"; //특수문자를 핸들링해야 함
+var regp = /[^0-9]/g; // ^ -> 부정, 0~9말고 다른 들어간 단어가 있는지? 확인 
+console.log(regp.test(word)); //0~9말고 다른 단어 *이 있기 때문에 true가 출력됨 */
+/*
+var word = "홍길동";
+var wopd = "(주)★GS"; //()도 인식함 
+//var regp = /[ㄱ-힣]/;
+//var regp = /[ㄱ-힣]/g; //전체 확인
+//var regp = /[^ㄱ-힣]/g; //부정(^)으로 한글외의 글자가 들어갔는지 확인
+var regp = /[^ㄱ-힣a-zA-Z()]/g; //ㄱ-힣, a-z, A-Z, () 확인 
+console.log(regp.test(word)); //true */
+
+//match: 배열로 체크. null로 경우 값을 찾을 수 없을 경우 / 배열로 체크 null일 경우 값을 찾을 수 없읅
+/*
+var word = "hongnate.com"
+//var regp = /[a-z]/g; // ['h', 'o', 'n', 'g', 'n', 'a', 't', 'e', 'c', 'o', 'm']
+var regp = /[@.a-z]/g; 
+//var regp = /[^@.a-z-]/g; 
+console.log(word.match(regp)); */
+
+//exec: 배열
+/*var word = "hong@gmail.com";
+var regp = /[a-z]/g;
+var regp = /[A-Z]/g;
+console.log(regp.exec(word));*/
+
+/*test 정규식을 이용하여 패턴과 함께 단어를 체크하는 코드*/
+/*
+//var word = "hong!@naver.com";
+var word = "h ong@naver.co!!!m";
+//var word = "h ong@nave!r.com";
+var word2 = word.replace(/ /g, ""); //공백 삭제
+console.log(word2);
+
+//var regp = /^[a-z0-9.-_]+@[a-z0-9ㄱ-힣]/i;
+//var regp = /[^a-z0-9.-_]+@[^a-z0-9ㄱ-힣]/i;
+var regp = /^[a-z0-9.-_]+@[a-z0-9ㄱ-힣]+\.[a-z0-9ㄱ-힣]/i; // .있으면 true, 없으면 false
+var regp = /^[a-z0-9.-_]+@[a-z0-9ㄱ-힣]+\.[a-z0-9ㄱ-힣]{2, }/i;
+//부정쓸때 조심해야 할 경우 -> 배열그룹 전체를 부정하고 싶으면, 각 그룹이 아닌, 제일 앞에 부정을 넣어야함 ex. ^[][]
+//console.log(word.test(regp)); //! 붙이면 false 뜸 
+console.log(regp.test(word2));
+
+*/
+
+/*//연락처: 9~11자리, 휴대폰:10~11
+var word ="023311235";
+var word2 = word.replace(/ /g, ""); //모든 공백 제거
+if(word2.length<9){
+	console.log("정상적은 전화번호를 입력하세요!!!");
+}
+else{
+	var regp = /^[0-9]/g;
+	var check = regp.test(word2);
+	console.log(check);
+	if(check==true){
+		console.log("올바른 연락처가 아닙니다.");
+	}
+	else{
+		console.log("올바른 연락처 입니다.");
+	}
+}
+*/
+
+//var word = "0105521234";
+var word = "01055250234"
+if(word.length < 10 || word.length > 11){
+	alert("올바른 휴대폰 번호를 입력하세요!");
+}
+else{
+	//var regp = /^01/; //무조건 01로 시작했을 때 
+	//var regp = /^01+[^0-9]/g;
+	var regp = /^01\d{8,9}/g;
+	console.log(regp.test(word)); //true
+}
+
+
+
+</script>
+</html>
