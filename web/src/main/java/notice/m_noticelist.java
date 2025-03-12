@@ -30,7 +30,7 @@ public class m_noticelist {
 		
 		try {
 			this.con = db.getConnection();
-			this.sql = "select nidx,subject,writer,nview,ndate from notice order by nidx desc";
+			this.sql = "select nidx,subject,writer,nview,ndate,(select count(*) from notice) as total from notice order by nidx desc";
 			this.ps = this.con.prepareStatement(this.sql);
 			this.rs = this.ps.executeQuery(); //select
 			this.alldata = new ArrayList<ArrayList<String>>();
@@ -42,6 +42,7 @@ public class m_noticelist {
 				this.data.add(this.rs.getString("writer"));
 				this.data.add(this.rs.getString("nview"));
 				this.data.add(this.rs.getString("ndate"));
+				this.data.add(this.rs.getString("total"));
 				
 				//1차 배열에 저장된 값을 2차 배열에 집어넣음
 				this.alldata.add(this.data);

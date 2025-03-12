@@ -137,4 +137,13 @@
   	<url-pattern>/mail/mailok.do</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+  	<servlet-name>ajax_postok</servlet-name> 	
+  	<servlet-class>ajax.ajax_postok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ajax_postok</servlet-name> 
+  	<url-pattern>/ajax/ajax_postok.do</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
